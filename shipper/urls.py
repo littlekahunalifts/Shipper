@@ -1,5 +1,5 @@
 """
-URL configuration for shippio project.
+URL configuration for shipper project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from shippio_api import urls as shippio_urls
+from shipper_api import urls as shipper_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('shippio/', include(shippio_urls)),
+    path('shipper/', include(shipper_urls)),
 ]

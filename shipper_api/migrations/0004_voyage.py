@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shippio_api', '0003_alter_vessel_created_at'),
+        ('shipper_api', '0003_alter_vessel_created_at'),
     ]
 
     operations = [

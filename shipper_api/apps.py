@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ShippioApiConfig(AppConfig):
+class ShipperApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'shippio_api'
+    name = 'shipper_api'
