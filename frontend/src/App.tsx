@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import axios from "axios";
 import React from "react";
-import ShipperMenu from "./ShipperMenu";
+import Navbar from "./Navbar";
 
 // where I found this stuff
 // https://www.youtube.com/watch?v=fBA-jaWab9k
@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ShipperMenu></ShipperMenu>
+        <Navbar></Navbar>
         <header>Current Ships:</header>
         <hr></hr>
         {this.state.details.map((vessel) => (
