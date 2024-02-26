@@ -3,7 +3,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
-        <a href="/" className="navbar-brand site-header">
+        <a href="/home" className="navbar-brand site-header">
           Shipper
         </a>
         <button
@@ -20,12 +20,12 @@ function Navbar() {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/vessels">
                 Vessels
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/about">
                 About
               </a>
             </li>
