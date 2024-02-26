@@ -1,4 +1,3 @@
-// TODO - make this a consistent menu frame
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -19,10 +18,26 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" href="/vessels">
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Vessels
               </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <a className="dropdown-item" href="/view-vessels">
+                    View Vessels
+                  </a>
+                  <a className="dropdown-item" href="/add-new-vessel">
+                    Add A New Vessel
+                  </a>
+                </li>
+              </ul>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/about">
