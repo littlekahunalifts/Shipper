@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import Vessels from "./Vessels";
 
 class AddVessel extends React.Component {
   url = "http://localhost:8000/shipper/api/";
@@ -24,7 +23,9 @@ class AddVessel extends React.Component {
         data = res.data;
         window.location.href = "/view-vessels";
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   };
   render = () => {
     return (

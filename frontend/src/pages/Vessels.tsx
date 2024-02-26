@@ -23,7 +23,9 @@ class Vessels extends React.Component {
           details: data,
         });
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }
   render() {
     return (
