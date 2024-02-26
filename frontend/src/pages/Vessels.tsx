@@ -1,6 +1,12 @@
 import axios from "axios";
 import React from "react";
 
+interface Vessel {
+  naccs: string;
+  name: string;
+  owner_id: string;
+}
+
 class Vessels extends React.Component {
   url = "http://localhost:8000/shipper/api/";
   state = { details: [] };
@@ -33,7 +39,7 @@ class Vessels extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.details.map((vessel) => (
+              {this.state.details.map((vessel: Vessel) => (
                 <tr id="{vessel.naccs}">
                   <td>{vessel.naccs}</td>
                   <td>{vessel.name}</td>

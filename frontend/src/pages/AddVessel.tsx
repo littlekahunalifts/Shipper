@@ -6,7 +6,7 @@ class AddVessel extends React.Component {
   url = "http://localhost:8000/shipper/api/";
   state = { naccs: "", name: "", owner_id: "" };
 
-  handleInput(event): void {
+  handleInput(event: React.ChangeEvent<HTMLInputElement>): void {
     const val = event.target.value;
     this.setState({
       [event.target.name]: val,
