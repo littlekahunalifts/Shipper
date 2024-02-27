@@ -2,7 +2,13 @@ function Home() {
   return (
     <>
       <div className="container">
-        <h1>Home Page</h1>
+        <div className="row">
+          <div className="col-2"></div>
+          <div className="col-8">
+            <h1>Welcome To Shipper!</h1>
+          </div>
+          <div className="col-2"></div>
+        </div>
       </div>
     </>
   );

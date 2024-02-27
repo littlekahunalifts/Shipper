@@ -25,7 +25,6 @@ function App() {
       break;
     }
     default: {
-      console.log("hit");
       Component = Home;
       break;
     }
