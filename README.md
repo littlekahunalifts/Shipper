@@ -28,4 +28,4 @@ I'm less familiar with this process myself, but I'll try to write a tutorial her
 Both servers are now hopefully up and running. I'm excited for you all to see the product at work, and hopefully there is enough here to show my intent to grow as a developer.
 
 Thank you again for looking!
-Christian Morris
+Christian
