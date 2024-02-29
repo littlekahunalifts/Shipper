@@ -22,7 +22,7 @@ function AddVessel() {
     // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     axios
       .post(url, state)
-      .then((res) => {
+      .then(() => {
         navigate("/view-vessels");
       })
       .catch((err) => {
