@@ -12,6 +12,6 @@ from .views import (
 # VoyageAPIView -> view/creation/updating of vessel's voyages in DB
 urlpatterns = [
   path('api/', VesselListAPIView.as_view(), name="vessels"),
-  path('api/<str:naccs>/', VesselAPIView.as_view(), name="vessel_update"),
+  path('api/<str:naccs>/', VesselAPIView.as_view(), name="vessel_info"),
   path('api/<str:naccs>/voyage', VoyageAPIView.as_view(), name="voyage"),
 ]

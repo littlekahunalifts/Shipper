@@ -1,11 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-function AddVessel() {
-  const url = "http://localhost:8000/shipper/api/";
-  let [state, setState] = useState({ naccs: "", name: "", owner_id: "" });
+function EditVessel() {
+  const { naccs } = useParams();
+  const url = "http://localhost:8000/shipper/api/" + naccs + "/";
   const navigate = useNavigate();
+  let location = useLocation();
+  let { name, owner_id } = location.state;
+  let [state, setState] = useState({
+    naccs: naccs,
+    name: name,
+    owner_id: owner_id,
+  });
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -15,13 +22,13 @@ function AddVessel() {
     }));
   };
 
-  const post = (event: { preventDefault: () => void }) => {
+  const patch = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     axios.defaults.headers.post["Content-Type"] =
       "application/json;charset=utf-8";
     // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     axios
-      .post(url, state)
+      .patch(url, state)
       .then((res) => {
         navigate("/view-vessels");
       })
@@ -29,14 +36,15 @@ function AddVessel() {
         console.log(err);
       });
   };
+
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-2"></div>
           <div className="col-8">
-            <h1>Register a New Vessel:</h1>
-            <form className="row g-3" onSubmit={post}>
+            <h1>Edit Vessel {naccs}:</h1>
+            <form className="row g-3" onSubmit={patch}>
               <div className="mb-3">
                 <label htmlFor="formGroupExampleInput" className="form-label">
                   NACCS Code
@@ -47,7 +55,9 @@ function AddVessel() {
                   id="formGroupExampleInput"
                   placeholder="E.g., ABC123, JPY100"
                   name="naccs"
-                  onChange={(event) => handleInput(event)}
+                  readOnly
+                  disabled
+                  value={naccs}
                 />
               </div>
               <div className="mb-3">
@@ -61,6 +71,8 @@ function AddVessel() {
                   placeholder="E.g., Seafarer II, High Seas' GM"
                   name="name"
                   onChange={(event) => handleInput(event)}
+                  value={state.name}
+                  contentEditable
                 />
               </div>
               <div className="mb-3">
@@ -74,11 +86,12 @@ function AddVessel() {
                   placeholder="E.g., John Smith, Bosun Bill"
                   name="owner_id"
                   onChange={(event) => handleInput(event)}
+                  value={state.owner_id}
                 />
               </div>
               <div className="d-flex flex-row-reverse">
                 <button type="submit" className="btn btn-primary float-right">
-                  Add Vessel
+                  Update {naccs}
                 </button>
               </div>
             </form>
@@ -90,4 +103,4 @@ function AddVessel() {
   );
 }
 
-export default AddVessel;
+export default EditVessel;
