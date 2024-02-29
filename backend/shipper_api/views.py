@@ -54,6 +54,19 @@ Class is intended for the following interactions:
 - updating a single vessel's information
 '''
 class VesselAPIView(APIView):
+  def get(self, request, *args, **kwargs):
+    '''
+    Retrieve single Vessel's data.
+    '''
+    naccs = self.kwargs.get('naccs')
+    vessel = Vessel.objects.get(naccs=naccs)
+    if vessel:
+      serializer = VesselSerializer(vessel)
+      data = serializer.data
+    else:
+      data = {"results": "There is no vessel in the database with this NACCS."}
+    return Response(data, status=status.HTTP_200_OK)
+
   def patch(self, request, *args, **kwargs):
     '''
     Updates a specific vessel's owner id or name as needed.

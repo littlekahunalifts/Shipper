@@ -60,7 +60,7 @@ class VesselCreateTestCase(APITestCase):
 class VesselPatchTestCase(APITestCase):
   def setUp(self):
     self.post_url = reverse('vessels')
-    self.patch_url = reverse('vessel_update', kwargs={"naccs": "ABC123"})
+    self.patch_url = reverse('vessel_info', kwargs={"naccs": "ABC123"})
 
   # simple check that put is working
   def test_put_creation(self):
